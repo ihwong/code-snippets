@@ -37,17 +37,12 @@ int main() {
     scanf("%s", guess);
     // 여기에서부터
     k = 0;
-    if (((guess[0] == '1') || (guess[0] == '2') || (guess[0] == '3')
-         || (guess[0] == '4') || (guess[0] == '5') || (guess[0] == '6')
-         || (guess[0] == '7') || (guess[0] == '8') || (guess[0] == '9'))
-        == 0)
+
+    if (strchr("123456789", guess[0]) == NULL)
       k += 1;
+    
     for (i = 1; i < 4; i++) {
-      if (((guess[i] == '0') || (guess[i] == '1') || (guess[i] == '2')
-           || (guess[i] == '3') || (guess[i] == '4')
-           || (guess[i] == '5') || (guess[i] == '6')
-           || (guess[i] == '7') || (guess[i] == '8')
-           || (guess[i] == '9')) == 0)
+      if (strchr("0123456789", guess[i]) == NULL)
         k += 1;
       for (j = 0; j < i; j++)
         k += (guess[i] == guess[j]);
