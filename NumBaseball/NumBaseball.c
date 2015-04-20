@@ -1,11 +1,12 @@
 #include <stdio.h>
-#include <stdlib.h> // rand() 함수를 위해
+#include <stdlib.h>
+#include <string.h>
 #include <time.h>
-#include <string.h> // strcmp 함수를 위해
- 
+
 int main() {
   
-  char ans[5] = "0000", guess[5];
+  char ans[5];
+  char guess[5];
 
   /* counting the number of tries */
   int n = 1;
@@ -33,17 +34,16 @@ int main() {
   // 네 자리 수
   // 각 자리는 모두 달라야
   for (n = 1;; n++) {
+    
     printf("%d번째 시도: ", n);
     scanf("%s", guess);
-    // 여기에서부터
+    
     k = 0;
 
-    if (strchr("123456789", guess[0]) == NULL)
-      k += 1;
+    k += (strchr("123456789", guess[0]) == NULL);
     
     for (i = 1; i < 4; i++) {
-      if (strchr("0123456789", guess[i]) == NULL)
-        k += 1;
+      k += (strchr("0123456789", guess[i]) == NULL);
       for (j = 0; j < i; j++)
         k += (guess[i] == guess[j]);
     }
@@ -53,7 +53,6 @@ int main() {
       n -= 1;
       continue;
     }
-    // 여기까지 코드 정리해야 함
  
     // 이 부분은 입력된 추측을 답과 비교하여 볼과 스트라이크를 출력한다.
     strike = 0;
