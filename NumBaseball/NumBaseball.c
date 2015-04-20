@@ -4,8 +4,17 @@
 #include <string.h> // strcmp 함수를 위해
  
 int main() {
-  char ans[5] = "0000", guess[5]; // ans 를 초기화시켜 ans[4]='\0' 이 되도록 한다.
-  int n = 1, i, j, k, strike, ball;
+  
+  char ans[5] = "0000", guess[5];
+
+  /* counting the number of tries */
+  int n = 1;
+  
+  /* variables for 'for' loops */
+  int i, j;
+
+  int k;
+  int strike, ball;
  
   srand(time(NULL));
  
@@ -25,7 +34,6 @@ int main() {
   // 각 자리는 모두 달라야
   for (n = 1;; n++) {
     printf("%d번째 시도: ", n);
-    fflush(stdout);
     scanf("%s", guess);
     // 여기에서부터
     k = 0;
@@ -47,7 +55,6 @@ int main() {
  
     if (k != 0) {
       printf("잘못된 입력입니다.\n");
-      fflush(stdout);
       n -= 1;
       continue;
     }
@@ -65,12 +72,11 @@ int main() {
     }
  
     printf("%d스트라이크 %d볼\n\n", strike, ball);
-    fflush(stdout);
  
     // 추측과 답안이 일치하는 경우 답을 출력하고 프로그램을 종료한다.
     if (strcmp(ans, guess) == 0) {
       printf("%d번의 시도 끝에 정답을 찾아냈습니다: %s\n", n, ans);
-      fflush(stdout);
+      
       return 0;
     }
   }
