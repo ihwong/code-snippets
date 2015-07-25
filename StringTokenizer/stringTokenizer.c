@@ -4,45 +4,10 @@
 #include "stringTokenizer.h"
 
 /*
-int main() {
-  
-  int i;
-  char inputString[256];
-  int count;
-  char* delimiter = " ";
-  char** tokenString = NULL;
-  
-  do { 
-    printf("%% ");
-    gets(inputString);
-  } while (stInvalidString(inputString, delimiter) == 1);
 
-  count = stCountTokens(inputString, delimiter);
-  
-  stTokenize(inputString, delimiter, &tokenString);
-  
-  for (i = 0; i < count; i++) {
-    printf ("tokenString[%d]: %s\n", i, tokenString[i]);
-  }
-  
-  stFreeTokens(inputString, delimiter, &tokenString);
-  
-  return 0;
-  
-}
 */
 
-// 동적 할당된 메모리를 free해 주는 부분
-void stFreeTokens(char* inputString, char* delimiter, char*** tokenString) {
 
-  int i;
-
-  for (i = 0; i < stCountTokens(inputString, delimiter); i++)
-    free((*tokenString)[i]);
-
-  free(*tokenString);
-  
-}
 
 // 공백 문자로만 된 문자열은 strtok 할 때 오류가 발생하기 때문에 예외처리
 int stInvalidString(char* inputString, char* delimiter) {
@@ -105,4 +70,16 @@ void stTokenize(char* inputString, char* delimiter, char*** tokenString) {
     strcpy ((*tokenString)[i], tempPointer);
     
   }
+}
+
+// 동적 할당된 메모리를 free해 주는 부분
+void stFreeTokens(char* inputString, char* delimiter, char*** tokenString) {
+
+  int i;
+
+  for (i = 0; i < stCountTokens(inputString, delimiter); i++)
+    free((*tokenString)[i]);
+
+  free(*tokenString);
+  
 }

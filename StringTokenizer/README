@@ -1,0 +1,1 @@
+이 디렉토리에는 C 언어로 구현된 string tokenizer가 있습니다. 필요한 함수는 stringTokenizer.h 에 선언되어 있고 stringTokenizer.c 에 정의되어 있습니다. sample.c 파일에는 이 string tokenizer의 사용법을 보여 주는 간단한 프로그램이 작성되어 있습니다.
