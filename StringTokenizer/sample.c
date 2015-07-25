@@ -18,9 +18,8 @@ int main() {
   
   stTokenize(inputString, delimiter, &tokenString);
   
-  for (i = 0; i < count; i++) {
-    printf ("tokenString[%d]: %s\n", i, tokenString[i]);
-  }
+  for (i = 0; i < count; i++)
+    printf("tokenString[%d]: %s\n", i, tokenString[i]);
   
   stFreeTokens(inputString, delimiter, &tokenString);
   
