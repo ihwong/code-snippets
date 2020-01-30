@@ -8,7 +8,7 @@
 #include <time.h>
 #include <sys/time.h>
 
-// printt() requires <time.h> and <sys/time.h>
+// printt() requires <time.h>, <sys/time.h> and <stdio.h>
 void printt(void);
 
 int main(int argc, char *argv[]) {
